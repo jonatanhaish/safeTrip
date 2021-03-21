@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    
+    <title>Socket.IO chat</title>
+    
+  </head>
+  <body>
+    <ul id="messages"></ul>
+  </body>
+  <script>
+    var socket = io();
+    var messages = document.getElementById('messages');
+
+  socket.on('chat message',(msg) => {
+    var item = document.createElement('li');
+    item.textContent=msg;
+    messages.appendChild(item);
+  });
+  </script>
+</html>
